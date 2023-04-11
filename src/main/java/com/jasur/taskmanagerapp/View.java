@@ -1,5 +1,6 @@
 package com.jasur.taskmanagerapp;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
@@ -98,14 +99,14 @@ public class View extends FlowPane {
         Label detailText = new Label("Details about selected Task");
         detailText.prefWidthProperty().bind(widthProperty());
         detailText.setAlignment(Pos.CENTER);
-        detailText.setStyle("-fx-font-weight: bold; -fx-font-size: 16px");
+        detailText.setStyle("-fx-font-weight: bold; -fx-font-size: 16px;");
 
         VBox detailBox = new VBox();
-        detailBox.setPrefWidth(500);
 
         detailDateText = new Label("Date: ");
         detailDescriptionText= new Label("Description: ");
         detailPlaceText = new Label("Place: ");
+        setMargin(detailBox, new Insets(0, 20, 0, 20));
 
         detailBox.setPrefHeight(195);
         detailBox.setStyle("" +

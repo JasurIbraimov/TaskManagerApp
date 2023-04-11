@@ -20,6 +20,7 @@ public class Controller {
     public Controller(View view) {
         tasks = FXCollections.observableArrayList();
         this.view = view;
+
         view.getPrivateTasksMenuItem().setOnAction(actionEvent -> {
             showPrivateTasks();
         });
@@ -181,7 +182,7 @@ public class Controller {
         Stage stage = new Stage();
         FlowPane root = new FlowPane();
         ListView<TaskModel> privateListView = new ListView<>();
-        privateListView.setItems(tasks.filtered(TaskModel::isPrivateTask));
+        privateListView.setItems(tasks.filtered(termin -> !termin.isPrivateTask()));
         privateListView.prefWidthProperty().bind(root.widthProperty());
         privateListView.prefHeightProperty().bind(root.heightProperty());
         root.getChildren().addAll(privateListView);
